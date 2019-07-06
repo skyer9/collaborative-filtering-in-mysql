@@ -102,8 +102,8 @@ order by
 
 ```sql
 CREATE TABLE `tbl_order_v2` (
-	`orderserial` varchar(32) NOT NULL,
-	`userid` varchar(32) NOT NULL,
+    `orderserial` varchar(32) NOT NULL,
+    `userid` varchar(32) NOT NULL,
     `category` varchar(32) NOT NULL,
     `itemid` int(11) NOT NULL,
   PRIMARY KEY (`orderserial`,`userid`,`itemid`)
@@ -126,15 +126,15 @@ from
     tbl_order_v2 A
     join tbl_order_v2 B
     on
-		1 = 1
+        1 = 1
         and A.orderserial = B.orderserial
         and A.userid = B.userid
         and A.category = B.category
         and A.itemid <> B.itemid
 group by
-	A.itemid, B.itemid
+    A.itemid, B.itemid
 order by
-	A.itemid, count(B.itemid) desc;
+    A.itemid, count(B.itemid) desc;
 ```
 
 협업 필터링은 몇가지 내재된 단점이 존재합니다.
